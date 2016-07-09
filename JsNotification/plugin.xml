@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.outstudio.plugin.jsNotification"
+        version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>jsNotification</name>
+    <js-module name="jsNotification" src="www/jsNotification.js">
+        <clobbers target="jsNotification" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="jsNotification">
+                <param name="android-package" value="com.outstudio.plugin.jsNotification.jsNotification" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+        </config-file>
+        <source-file src="src/android/jsNotification.java" target-dir="src/com/outstudio/plugin/jsNotification" />
+        <source-file src="src/android/util/FakeR.java" target-dir="src/com/outstudio/plugin/jsNotification/util" />
+    </platform>
+</plugin>

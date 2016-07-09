@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.outstudio.plugin.stepGit" version="0.0.1"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>stepGit</name>
+    <js-module name="stepGit" src="www/stepGit.js">
+        <clobbers target="stepGit" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <!-- config file -->
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="stepGit">
+                <param name="android-package" value="com.outstudio.plugin.stepGit.stepGit" />
+            </feature>
+        </config-file>
+        <!-- app config file -->
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <activity android:label="@string/multi_app_name" android:name="com.outstudio.plugin.stepGit.activity.StepGitActivity" android:theme="@android:style/Theme.Holo.Light">
+            </activity>
+            <activity android:label="@string/multi_app_name" android:name="com.outstudio.plugin.stepGit.activity.CountingActivity" android:theme="@android:style/Theme.Holo.Light">
+            </activity>
+            <service android:name="com.outstudio.plugin.stepGit.service.ServiceFrontE">
+            </service>
+            <service android:name="com.outstudio.plugin.stepGit.service.StepCounterService">
+            </service>
+        </config-file>
+        <!-- source part -->
+        <source-file src="src/android/stepGit.java" target-dir="src/com/outstudio/plugin/stepGit" />
+        <source-file src="src/android/util/FakeR.java" target-dir="src/com/outstudio/plugin/stepGit/util" />
+        <source-file src="src/android/util/StepDetector.java" target-dir="src/com/outstudio/plugin/stepGit/util" />
+        <source-file src="src/android/activity/StepGitActivity.java" target-dir="src/com/outstudio/plugin/stepGit/activity" />
+        <source-file src="src/android/activity/CountingActivity.java" target-dir="src/com/outstudio/plugin/stepGit/activity" />
+        <source-file src="src/android/service/ServiceFrontE.java" target-dir="src/com/outstudio/plugin/stepGit/service" />
+        <source-file src="src/android/service/StepCounterService.java" target-dir="src/com/outstudio/plugin/stepGit/service" />
+        <!-- resource part -->
+        <source-file src="src/android/res/layout/stepgit_layout.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/stepgit_count.xml" target-dir="res/layout"/>
+    </platform>
+</plugin>
